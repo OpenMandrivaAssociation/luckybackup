@@ -1,5 +1,5 @@
 %define name luckybackup
-%define version 0.3.3
+%define version 0.3.5
 
 Summary:	A powerful, fast and reliable backup & sync tool
 Name:		%{name}
