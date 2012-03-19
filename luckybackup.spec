@@ -1,5 +1,5 @@
 %define name luckybackup
-%define version 0.4.6
+%define version 0.4.7
 
 Summary:	A powerful, fast and reliable backup & sync tool
 Name:		%{name}
@@ -8,9 +8,8 @@ Release:	%mkrel 1
 License:	GPLv3
 Url:		http://luckybackup.sourceforge.net/
 Group:		Archiving/Backup
-Source:		http://prdownloads.sourceforge.net/sourceforge/luckybackup/luckybackup-%{version}.tar.gz
+Source0:	http://prdownloads.sourceforge.net/sourceforge/luckybackup/luckybackup-%{version}.tar.gz
 Patch0:		remove_old_menu_file.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	qt4-devel
 Requires:	rsync
 
@@ -32,26 +31,9 @@ qmake
 %make
 
 %install
-rm -rf %{buildroot}
-%makeinstall INSTALL_ROOT=$RPM_BUILD_ROOT install
-
-%clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post
-%update_menus
-%update_icon_cache hicolor
-%endif
- 
-%if %mdkversion < 200900
-%postun
-%clean_menus
-%clean_icon_cache hicolor
-%endif
+%makeinstall INSTALL_ROOT=%{buildroot} install
 
 %files
-%defattr(-,root,root)
 %{_bindir}/%{name}
 %{_datadir}/applications/*
 %{_datadir}/%{name}/translations/*
