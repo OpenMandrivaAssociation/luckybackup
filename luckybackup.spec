@@ -4,7 +4,7 @@
 Summary:	A powerful, fast and reliable backup & sync tool
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 1
+Release:	2
 License:	GPLv3
 Url:		http://luckybackup.sourceforge.net/
 Group:		Archiving/Backup
