@@ -11,6 +11,10 @@ Group:		Archiving/Backup
 Source0:	http://prdownloads.sourceforge.net/sourceforge/luckybackup/luckybackup-%{version}.tar.gz
 #Patch0:		remove_old_menu_file.patch
 BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	qt5-qttools
+BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	pkgconfig(Qt5Network)
+BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:  qmake5
 Requires:	rsync
 
@@ -27,7 +31,7 @@ before proceeding in any data manipulation ), reliable and fully customizable.
 #patch0 -p1
 
 %build
-qmake
+%qmake_qt5
 
 %make
 
