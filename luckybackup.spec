@@ -1,16 +1,16 @@
 %define name luckybackup
-%define version 0.4.7
+%define version 0.5.0
 
 Summary:	A powerful, fast and reliable backup & sync tool
 Name:		%{name}
 Version:	%{version}
-Release:	2
+Release:	1
 License:	GPLv3
 Url:		http://luckybackup.sourceforge.net/
 Group:		Archiving/Backup
 Source0:	http://prdownloads.sourceforge.net/sourceforge/luckybackup/luckybackup-%{version}.tar.gz
-Patch0:		remove_old_menu_file.patch
-BuildRequires:	qt4-devel
+#Patch0:		remove_old_menu_file.patch
+BuildRequires:	pkgconfig(Qt5Core)
 Requires:	rsync
 
 %description
@@ -23,7 +23,7 @@ before proceeding in any data manipulation ), reliable and fully customizable.
 
 %prep
 %setup -q
-%patch0 -p1
+#patch0 -p1
 
 %build
 qmake
