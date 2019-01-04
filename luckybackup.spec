@@ -1,16 +1,19 @@
-%define name luckybackup
-%define version 0.4.7
 
 Summary:	A powerful, fast and reliable backup & sync tool
-Name:		%{name}
-Version:	%{version}
-Release:	2
+Name:		luckybackup
+Version:	0.5.0
+Release:	1
 License:	GPLv3
 Url:		http://luckybackup.sourceforge.net/
 Group:		Archiving/Backup
 Source0:	http://prdownloads.sourceforge.net/sourceforge/luckybackup/luckybackup-%{version}.tar.gz
-Patch0:		remove_old_menu_file.patch
-BuildRequires:	qt4-devel
+#Patch0:		remove_old_menu_file.patch
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	qt5-qttools
+BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	pkgconfig(Qt5Network)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:  qmake5
 Requires:	rsync
 
 %description
@@ -23,23 +26,25 @@ before proceeding in any data manipulation ), reliable and fully customizable.
 
 %prep
 %setup -q
-%patch0 -p1
+#patch0 -p1
 
 %build
-qmake
+%qmake_qt5
 
-%make
+%make_build
 
 %install
-%makeinstall INSTALL_ROOT=%{buildroot} install
+%make_install INSTALL_ROOT=%{buildroot} install
 
 %files
 %{_bindir}/%{name}
+%{_bindir}/%{name}-pkexec
 %{_datadir}/applications/*
 %{_datadir}/%{name}/translations/*
 %{_datadir}/pixmaps/%{name}.*
 %{_mandir}/man8/*
 %{_defaultdocdir}/%{name}/*
+%{_datadir}/polkit-1/actions/net.luckybackup.su.policy
 
 
 
