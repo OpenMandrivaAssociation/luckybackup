@@ -1,9 +1,7 @@
-%define name luckybackup
-%define version 0.5.0
 
 Summary:	A powerful, fast and reliable backup & sync tool
-Name:		%{name}
-Version:	%{version}
+Name:		luckybackup
+Version:	0.5.0
 Release:	1
 License:	GPLv3
 Url:		http://luckybackup.sourceforge.net/
@@ -33,10 +31,10 @@ before proceeding in any data manipulation ), reliable and fully customizable.
 %build
 %qmake_qt5
 
-%make
+%make_build
 
 %install
-%makeinstall INSTALL_ROOT=%{buildroot} install
+%make_install INSTALL_ROOT=%{buildroot} install
 
 %files
 %{_bindir}/%{name}
