@@ -40,11 +40,13 @@ before proceeding in any data manipulation ), reliable and fully customizable.
 
 %files
 %{_bindir}/%{name}
+%{_bindir}/%{name}-pkexec
 %{_datadir}/applications/*
 %{_datadir}/%{name}/translations/*
 %{_datadir}/pixmaps/%{name}.*
 %{_mandir}/man8/*
 %{_defaultdocdir}/%{name}/*
+%{_datadir}/polkit-1/actions/net.luckybackup.su.policy
 
 
 
