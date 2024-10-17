@@ -4,7 +4,7 @@ Name:		luckybackup
 Version:	0.5.0
 Release:	1
 License:	GPLv3
-Url:		http://luckybackup.sourceforge.net/
+Url:		https://luckybackup.sourceforge.net/
 Group:		Archiving/Backup
 Source0:	http://prdownloads.sourceforge.net/sourceforge/luckybackup/luckybackup-%{version}.tar.gz
 #Patch0:		remove_old_menu_file.patch
